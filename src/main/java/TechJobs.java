@@ -128,7 +128,7 @@ public class TechJobs {
                 for (Map.Entry<String, String> display : jobStats.entrySet()) {
                     System.out.println(String.format("%s: %s", display.getKey(), display.getValue()));
                 }
-                System.out.println("*****\n");
+                System.out.println("*****");
             }
         }
     }
