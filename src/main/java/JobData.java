@@ -101,13 +101,13 @@ public class JobData {
             for(Map.Entry<String, String> column: row.entrySet()){
                 if(column.getValue().toLowerCase().contains(value) || column.getKey().toLowerCase().contains(value)){
                     jobChecker = true;
+                    break;
                 }
             }
-            if (jobChecker == true){
+            if (jobChecker){
                 jobList.add(row);
             }
         }
-
         return jobList;
     }
 
