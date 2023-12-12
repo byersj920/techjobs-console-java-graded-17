@@ -124,8 +124,7 @@ public class TechJobs {
         } else {
             for (HashMap<String, String> job : someJobs) {
                 System.out.println("\n*****");
-                HashMap<String, String> jobStats = job;
-                for (Map.Entry<String, String> display : jobStats.entrySet()) {
+                for (Map.Entry<String, String> display : job.entrySet()) {
                     System.out.println(String.format("%s: %s", display.getKey(), display.getValue()));
                 }
                 System.out.println("*****");

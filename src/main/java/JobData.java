@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -94,8 +91,24 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        /*For this method, I checked each row one by one. Then, if something in one of the columns contains the
+        searched value, the jobChecker flag becomes true. Once it's true, that entire "row" (or more specifically, that
+        specific job) gets added to an arraylist. Which can be converted into a displayable message via the
+        printJobs() method. Pretty nifty!*/
+        ArrayList<HashMap<String, String>> jobList = new ArrayList<>();
+        for(HashMap<String, String> row: allJobs){
+            boolean jobChecker = false;
+            for(Map.Entry<String, String> column: row.entrySet()){
+                if(column.getValue().contains(value) || column.getKey().contains(value)){
+                    jobChecker = true;
+                }
+            }
+            if (jobChecker == true){
+                jobList.add(row);
+            }
+        }
+
+        return jobList;
     }
 
     /**
