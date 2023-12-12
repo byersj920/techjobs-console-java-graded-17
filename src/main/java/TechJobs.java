@@ -54,6 +54,12 @@ public class TechJobs {
 
             } else { // choice is "search"
 
+                /*To make the search choice case-insensitive, I add the toLowerCase() method to the string value being
+                passed into findByValue() and findByColumnAndValue(). In addition to that, when the value was checked
+                against each column and row in those methods, I also converted each of them to lower case as well.
+                Basically, the thing being searched and the things being checked were all converted to lowercase for
+                case-insensitivity.*/
+
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
 
@@ -62,9 +68,9 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchTerm));
+                    printJobs(JobData.findByValue(searchTerm.toLowerCase()));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm.toLowerCase()));
                 }
             }
         }
